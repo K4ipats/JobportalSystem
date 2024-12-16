@@ -1,0 +1,34 @@
+﻿@model IEnumerable<dynamic>
+
+<h2>Applicants for the Job</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Applied Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var applicant in Model)
+            {
+                <tr>
+                    <td>@applicant.Name</td>
+                    <td>@applicant.Email</td>
+                    <td>@applicant.PhoneNumber</td>
+                    <td>@applicant.AppliedDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No applicants found for this job.</td>
+            </tr>
+        }
+    </tbody>
+</table>
